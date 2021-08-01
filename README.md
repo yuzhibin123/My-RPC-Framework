@@ -114,8 +114,8 @@ public class NettyTestClient {
     public static void main(String[] args) {
         RpcClient client = new NettyClient(CommonSerializer.KRYO_SERIALIZER, new RoundRobinLoadBalancer());
         RpcClientProxy rpcClientProxy = new RpcClientProxy(client);
-        HelloService helloService = rpcClientProxy.getProxy(HelloService.class);
-        String res = helloService.hello("yuzhibin");
+        ByeService byeService = rpcClientProxy.getProxy(ByeService.class);
+        String res = byeService.bye("yuzhibin");
         System.out.println(res);
     }
 }
@@ -127,7 +127,7 @@ public class NettyTestClient {
 
 在此之前请确保 Nacos 运行在本地 `8848` 端口。
 
-首先启动服务提供者，再启动消费者，在消费侧会输出`Hello, yuzhibin`。
+首先启动服务提供者，再启动消费者，在消费侧会输出`bye, yuzhibin`。
 
 ## TODO
 
