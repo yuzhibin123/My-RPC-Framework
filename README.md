@@ -72,13 +72,18 @@ public interface ByeService {
 ```java
 package top.yuzhibin.test;
 
-import top.yuzhibin.rpc.api.HelloService;
+import top.yuzhibin.rpc.annotation.Service;
+import top.yuzhibin.rpc.api.ByeService;
 
+/**
+ * @author yuzhibin
+ */
 @Service
-public class HelloServiceImpl implements HelloService {
+public class ByeServiceImpl implements ByeService {
+
     @Override
-    public String hello(String name) {
-        return "Hello, " + name;
+    public String bye(String name) {
+        return "bye, " + name;
     }
 }
 ```
