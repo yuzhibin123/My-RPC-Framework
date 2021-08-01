@@ -57,8 +57,13 @@ My-RPC-Framework 是一款基于 Nacos 实现的 RPC 框架。网络传输实现
 ```java
 package top.yuzhibin.rpc.api;
 
-public interface HelloService {
-    String hello(String name);
+/**
+ * @author yuzhibin
+ */
+public interface ByeService {
+
+    String bye(String name);
+
 }
 ```
 
