@@ -55,7 +55,7 @@ My-RPC-Framework 是一款基于 Nacos 实现的 RPC 框架。网络传输实现
 ### 定义调用接口
 
 ```java
-package top.guoziyang.rpc.api;
+package top.yuzhibin.rpc.api;
 
 public interface HelloService {
     String hello(String name);
@@ -65,9 +65,9 @@ public interface HelloService {
 ### 在服务提供侧实现该接口
 
 ```java
-package top.guoziyang.test;
+package top.yuzhibin.test;
 
-import top.guoziyang.rpc.api.HelloService;
+import top.yuzhibin.rpc.api.HelloService;
 
 @Service
 public class HelloServiceImpl implements HelloService {
@@ -81,11 +81,11 @@ public class HelloServiceImpl implements HelloService {
 ### 编写服务提供者
 
 ```java
-package top.guoziyang.test;
+package top.yuzhibin.test;
 
-import top.guoziyang.rpc.api.HelloService;
-import top.guoziyang.rpc.serializer.CommonSerializer;
-import top.guoziyang.rpc.transport.netty.server.NettyServer;
+import top.yuzhibin.rpc.api.HelloService;
+import top.yuzhibin.rpc.serializer.CommonSerializer;
+import top.yuzhibin.rpc.transport.netty.server.NettyServer;
 
 @ServiceScan
 public class NettyTestServer {
@@ -101,13 +101,13 @@ public class NettyTestServer {
 ### 在服务消费侧远程调用
 
 ```java
-package top.guoziyang.test;
+package top.yuzhibin.test;
 
-import top.guoziyang.rpc.api.HelloService;
-import top.guoziyang.rpc.serializer.CommonSerializer;
-import top.guoziyang.rpc.transport.RpcClient;
-import top.guoziyang.rpc.transport.RpcClientProxy;
-import top.guoziyang.rpc.transport.netty.client.NettyClient;
+import top.yuzhibin.rpc.api.HelloService;
+import top.yuzhibin.rpc.serializer.CommonSerializer;
+import top.yuzhibin.rpc.transport.RpcClient;
+import top.yuzhibin.rpc.transport.RpcClientProxy;
+import top.yuzhibin.rpc.transport.netty.client.NettyClient;
 
 public class NettyTestClient {
 
@@ -115,7 +115,7 @@ public class NettyTestClient {
         RpcClient client = new NettyClient(CommonSerializer.KRYO_SERIALIZER, new RoundRobinLoadBalancer());
         RpcClientProxy rpcClientProxy = new RpcClientProxy(client);
         HelloService helloService = rpcClientProxy.getProxy(HelloService.class);
-        String res = helloService.hello("ziyang");
+        String res = helloService.hello("yuzhibin");
         System.out.println(res);
     }
 }
@@ -127,7 +127,7 @@ public class NettyTestClient {
 
 在此之前请确保 Nacos 运行在本地 `8848` 端口。
 
-首先启动服务提供者，再启动消费者，在消费侧会输出`Hello, ziyang`。
+首先启动服务提供者，再启动消费者，在消费侧会输出`Hello, yuzhibin`。
 
 ## TODO
 
