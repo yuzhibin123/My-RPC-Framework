@@ -1,7 +1,5 @@
 # My-RPC-Framework
 自定义的简易RPC框架
-](https://travis-ci.com/CN-GuoZiyang/My-RPC-Framework)
-![GitHub](https://img.shields.io/github/license/CN-GuoZiyang/My-RPC-Framework)
 ![jdk](https://img.shields.io/static/v1?label=oraclejdk&message=8&color=blue)
 
 My-RPC-Framework 是一款基于 Nacos 实现的 RPC 框架。网络传输实现了基于 Java 原生 Socket 与 Netty 版本，并且实现了多种序列化与负载均衡算法。
