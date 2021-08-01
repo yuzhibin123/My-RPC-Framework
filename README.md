@@ -121,12 +121,18 @@ public class NettyTestServer {
 ```java
 package top.yuzhibin.test;
 
-import top.yuzhibin.rpc.api.HelloService;
+import top.yuzhibin.rpc.api.ByeService;
+import top.yuzhibin.rpc.loadbalancer.RoundRobinLoadBalancer;
 import top.yuzhibin.rpc.serializer.CommonSerializer;
 import top.yuzhibin.rpc.transport.RpcClient;
 import top.yuzhibin.rpc.transport.RpcClientProxy;
 import top.yuzhibin.rpc.transport.netty.client.NettyClient;
 
+/**
+ * 测试用Netty消费者
+ *
+ * @author yuzhibin
+ */
 public class NettyTestClient {
 
     public static void main(String[] args) {
@@ -136,6 +142,7 @@ public class NettyTestClient {
         String res = byeService.bye("yuzhibin");
         System.out.println(res);
     }
+
 }
 ```
 
